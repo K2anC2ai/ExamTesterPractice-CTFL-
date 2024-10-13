@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTQB CTFL Sample Exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            margin: 10px 0;
+        }
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .explanation {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ISTQB CTFL Sample Exam</h1>
+
+    <div id="questionContainer" class="question">
+        <p id="questionText"></p>
+        <div class="options" id="optionsContainer"></div>
+        <button id="submitButton" class="button">Submit Answer</button>
+        <button id="nextButton" class="button" style="display: none;">Next Question</button>
+        <div id="explanation" class="explanation"></div>
+    </div>
+
+    <div id="results" class="results"></div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "Question #1 (1 Point): Which of the following statements describe a valid test objective?",
+            options: [
+                { text: "a) To prove that there are no unfixed defects in the system under test", correct: false },
+                { text: "b) To prove that there will be no failures after the implementation of the system into production", correct: false },
+                { text: "c) To reduce the risk level of the test object and to build confidence in the quality level", correct: true },
+                { text: "d) To verify that there are no untested combinations of inputs", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! A valid test objective is to reduce the risk level of the test object and build confidence in the quality level.",
+                incorrect: "Incorrect. The correct answer is c) To reduce the risk level of the test object and to build confidence in the quality level."
+            }
+        },
+        {
+            question: "Question #2 (1 Point): Which of the following options shows an example of test activities that contribute to success?",
+            options: [
+                { text: "a) Having testers involved during various software development lifecycle (SDLC) activities will help to detect defects in work products", correct: true },
+                { text: "b) Testers try not to disturb the developers while coding, so that the developers write better code", correct: false },
+                { text: "c) Testers collaborating with end users help to improve the quality of defect reports during component integration and system testing", correct: false },
+                { text: "d) Certified testers will design much better test cases than non-certified testers", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! Having testers involved during various SDLC activities helps to detect defects early.",
+                incorrect: "Incorrect. The correct answer is a) Having testers involved during various software development lifecycle (SDLC) activities will help to detect defects in work products."
+            }
+        },
+        {
+            question: "Question #3 (1 Point): You have been assigned as a tester to a team producing a new system incrementally. You have noticed that no changes have been made to the existing regression test cases for several iterations and no new regression defects were identified. Your manager is happy, but you are not. Which testing principle explains your skepticism?",
+            options: [
+                { text: "a) Tests wear out", correct: true },
+                { text: "b) Absence-of-errors fallacy", correct: false },
+                { text: "c) Defects cluster together", correct: false },
+                { text: "d) Exhaustive testing is impossible", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! The principle that tests wear out explains your skepticism regarding the lack of changes in regression tests.",
+                incorrect: "Incorrect. The correct answer is a) Tests wear out."
+            }
+        },
+        {
+            question: "Question #4 (1 Point): You work in a team that develops a mobile application for food ordering. In the current iteration the team decided to implement the payment functionality. Which of the following activities is a part of test analysis?",
+            options: [
+                { text: "a) Estimating that testing the integration with the payment service will take 8 person-days", correct: false },
+                { text: "b) Deciding that the team should test if it is possible to properly share payment between many users", correct: true },
+                { text: "c) Using boundary value analysis (BVA) to derive the test data for the test cases that check the correct payment processing for the minimum allowed amount to be paid", correct: false },
+                { text: "d) Analyzing the discrepancy between the actual result and expected result after executing a test case that checks the process of payment with a credit card, and reporting a defect", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! Test analysis involves deciding how to test the new payment functionality.",
+                incorrect: "Incorrect. The correct answer is b) Deciding that the team should test if it is possible to properly share payment between many users."
+            }
+        },
+        {
+            question: "Question #5 (1 Point): Which of the following factors have a SIGNIFICANT influence on the test approach?",
+            options: [
+                { text: "a) i, ii have significant influence", correct: false },
+                { text: "b) i, iii, iv have significant influence", correct: true },
+                { text: "c) ii, iv, v have significant influence", correct: false },
+                { text: "d) iii, v have significant influence", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! Factors like risk, requirement complexity, and time constraints significantly influence the test approach.",
+                incorrect: "Incorrect. The correct answer is b) i, iii, iv have significant influence."
+            }
+        },
+        {
+            question: "Question #6 (1 Point): Which TWO of the following tasks belong MAINLY to a testing role?",
+            options: [
+                { text: "a) Configure test environments", correct: true },
+                { text: "b) Maintain the product backlog", correct: false },
+                { text: "c) Design solutions to new requirements", correct: false },
+                { text: "d) Create the test plan", correct: true },
+                { text: "e) Analyze the test basis", correct: true },
+            ],
+            explanation: {
+                correct: "Correct! Analyzing the test basis and creating the test plan are key testing tasks.",
+                incorrect: "Incorrect. The correct answers are a) Configure test environments, d) Create the test plan, and e) Analyze the test basis."
+            }
+        },
+        {
+            question: "Question #7 (1 Point): Which of the following skills (i-v) are the MOST important skills of a tester?",
+            options: [
+                { text: "a) ii and iv are important", correct: false },
+                { text: "b) i, iii and v are important", correct: false },
+                { text: "c) i, ii and v are important", correct: true },
+                { text: "d) iii and iv are important", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! Important skills for a tester include analytical skills and domain knowledge.",
+                incorrect: "Incorrect. The correct answer is c) i, ii and v are important."
+            }
+        },
+        {
+            question: "Question #8 (1 Point): How is the whole team approach present in the interactions between testers and business representatives?",
+            options: [
+                { text: "a) Business representatives decide on test automation approaches", correct: false },
+                { text: "b) Testers help business representatives to define test strategy", correct: false },
+                { text: "c) Business representatives are not part of the whole team approach", correct: false },
+                { text: "d) Testers help business representatives to create suitable acceptance tests", correct: true },
+            ],
+            explanation: {
+                correct: "Correct! Testers collaborate with business representatives to create suitable acceptance tests.",
+                incorrect: "Incorrect. The correct answer is d) Testers help business representatives to create suitable acceptance tests."
+            }
+        },
+        {
+            question: "Question #9 (1 Point): What is the role of the test manager in agile development?",
+            options: [
+                { text: "a) Focus on achieving quality by managing the testing effort", correct: false },
+                { text: "b) Ensure that testing is performed in line with the agile manifesto", correct: false },
+                { text: "c) Manage the testing team members on a daily basis", correct: false },
+                { text: "d) Involve everyone in the project in the testing activities", correct: true },
+            ],
+            explanation: {
+                correct: "Correct! The test manager ensures that testing aligns with the agile manifesto and involves everyone in testing.",
+                incorrect: "Incorrect. The correct answer is d) Involve everyone in the project in the testing activities."
+            }
+        },
+        {
+            question: "Question #10 (1 Point): The difference between static and dynamic testing is that...",
+            options: [
+                { text: "a) Static testing does not require execution, while dynamic testing does", correct: true },
+                { text: "b) Static testing is always manual, while dynamic testing is always automated", correct: false },
+                { text: "c) Static testing cannot be used in the maintenance phase", correct: false },
+                { text: "d) Static testing is performed by developers, while dynamic testing is performed by testers", correct: false },
+            ],
+            explanation: {
+                correct: "Correct! The main difference is that static testing does not require execution, while dynamic testing does.",
+                incorrect: "Incorrect. The correct answer is a) Static testing does not require execution, while dynamic testing does."
+            }
+        },
+    {
+        question: "Question #11 (1 Point): Which of the following is NOT an example of the shift left approach?",
+        options: [
+            { text: "a) Reviewing the user requirements before they are formally accepted by the stakeholders", correct: false },
+            { text: "b) Writing a component test before the corresponding code is written", correct: false },
+            { text: "c) Executing a performance efficiency test for a component during component testing", correct: false },
+            { text: "d) Writing a test script before setting up the configuration management process", correct: true },
+        ],
+        explanation: {
+            correct: "Correct! Test scripts should be subject to configuration management, so it makes no sense to create the test scripts before this process is set up.",
+            incorrect: "Incorrect. The correct answer is d) Writing a test script before setting up the configuration management process."
+        }
+    },
+    {
+        question: "Question #12 (1 Point): Which of the arguments below would you use to convince your manager to organize retrospectives at the end of each release cycle?",
+        options: [
+            { text: "a) Retrospectives are very popular these days and clients would appreciate it if we added them to our processes", correct: false },
+            { text: "b) Organizing retrospectives will save the organization money because without them end user representatives do not provide immediate feedback about the product", correct: false },
+            { text: "c) Process weaknesses identified during the retrospective can be analyzed and serve as a to do list for the organization’s continuous process improvement program", correct: true },
+            { text: "d) Retrospectives embrace five values including courage and respect, which are crucial to maintain continuous improvement in the organization", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! Regularly conducted retrospectives, when appropriate follow-up activities occur, are critical to continual improvement of development and testing.",
+            incorrect: "Incorrect. The correct answer is c) Process weaknesses identified during the retrospective can be analyzed and serve as a to do list for the organization’s continuous process improvement program."
+        }
+    },
+    {
+        question: "Question #13 (1 Point): Which types of failures (1-4) fit which test levels (A-D) BEST?",
+        options: [
+            { text: "a) 1D, 2B, 3A, 4C", correct: true },
+            { text: "b) 1D, 2B, 3C, 4A", correct: false },
+            { text: "c) 1B, 2A, 3D, 4C", correct: false },
+            { text: "d) 1C, 2B, 3A, 4D", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! The test basis for acceptance testing is the user’s business needs (1D), communication between components is tested during component integration testing (2B), failures in logic can be found during component testing (3A), and business rules are the test basis for system testing (4C).",
+            incorrect: "Incorrect. The correct answer is a) 1D, 2B, 3A, 4C."
+        }
+    },
+    {
+        question: "Question #14 (1 Point): You are testing a user story with three acceptance criteria: AC1, AC2 and AC3. AC1 is covered by test case TC1, AC2 by TC2, and AC3 by TC3. The test execution history had three test runs on three consecutive versions of the software as follows: Execution 1: TC1 (1) Failed, TC2 (2) Passed, TC3 (3) Failed; Execution 2: TC1 (4) Passed, TC2 (5) Failed, TC3 (6) Failed; Execution 3: TC1 (7) Passed, TC2 (8) Passed, TC3 (9) Passed. Which of the above tests are executed as regression tests?",
+        options: [
+            { text: "a) Only 4, 7, 8, 9", correct: false },
+            { text: "b) Only 5, 7", correct: true },
+            { text: "c) Only 4, 6, 8, 9", correct: false },
+            { text: "d) Only 5, 6", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! TC1 and TC3 failed in Execution 1, so TC4 and TC6 are confirmation tests. TC2 and TC3 failed in Execution 2, so TC8 and TC9 are also confirmation tests. TC2 passed in Execution 1, so TC5 is a regression test, and TC1 passed in Execution 2, so TC7 is also a regression test.",
+            incorrect: "Incorrect. The correct answer is b) Only 5, 7."
+        }
+    },
+    {
+        question: "Question #15 (1 Point): Which of the following is NOT a benefit of static testing?",
+        options: [
+            { text: "a) Having less expensive defect management due to the ease of detecting defects later in the SDLC", correct: true },
+            { text: "b) Fixing defects found during static testing is generally much less expensive than fixing defects found during dynamic testing", correct: false },
+            { text: "c) Finding coding defects that might not have been found by only performing dynamic testing", correct: false },
+            { text: "d) Detecting gaps and inconsistencies in requirements", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! Finding and fixing defects later in the SDLC is generally more costly.",
+            incorrect: "Incorrect. The correct answer is a) Having less expensive defect management due to the ease of detecting defects later in the SDLC."
+        }
+    },
+    {
+        question: "Question #16 (1 Point): Which of the following is a benefit of early and frequent feedback?",
+        options: [
+            { text: "a) It improves the test process for future projects", correct: false },
+            { text: "b) It forces customers to prioritize their requirements based on agreed risks", correct: false },
+            { text: "c) It provides a measure for the quality of changes", correct: false },
+            { text: "d) It helps avoid requirements misunderstandings", correct: true },
+        ],
+        explanation: {
+            correct: "Correct! Early and frequent feedback can prevent misunderstandings about requirements.",
+            incorrect: "Incorrect. The correct answer is d) It helps avoid requirements misunderstandings."
+        }
+    },
+    {
+        question: "Question #17 (1 Point): The reviews being used in your organization have the following attributes: There is the role of a scribe, the main purpose is to evaluate quality, the meeting is led by the author of the work product, there is individual preparation, and a review report is produced. Which of the following review types is MOST likely being used?",
+        options: [
+            { text: "a) Informal review", correct: false },
+            { text: "b) Walkthrough", correct: true },
+            { text: "c) Technical review", correct: false },
+            { text: "d) Inspection", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! A walkthrough typically includes these attributes, especially the role of a scribe and the involvement of the author.",
+            incorrect: "Incorrect. The correct answer is b) Walkthrough."
+        }
+    },
+    {
+        question: "Question #18 (1 Point): Which of these statements is NOT a factor that contributes to successful reviews?",
+        options: [
+            { text: "a) Participants should dedicate adequate time for the review", correct: false },
+            { text: "b) Splitting large work products into small parts to make the required effort less intense", correct: false },
+            { text: "c) Participants should avoid behaviors that might indicate boredom, exasperation, or hostility to other participants", correct: false },
+            { text: "d) Failures found should be acknowledged, appreciated, and handled objectively", correct: true },
+        ],
+        explanation: {
+            correct: "Correct! During reviews, one can find defects, not failures.",
+            incorrect: "Incorrect. The correct answer is d) Failures found should be acknowledged, appreciated, and handled objectively."
+        }
+    },
+    {
+        question: "Question #19 (1 Point): Which of the following is a characteristic of experience-based test techniques?",
+        options: [
+            { text: "a) Test cases are created based on detailed design information", correct: false },
+            { text: "b) Items tested within the interface code section are used to measure coverage", correct: false },
+            { text: "c) The techniques heavily rely on the tester’s knowledge of the software and the business domain", correct: true },
+            { text: "d) The test cases are used to identify deviations from the requirements", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! Experience-based testing techniques rely on the tester’s knowledge and experience.",
+            incorrect: "Incorrect. The correct answer is c) The techniques heavily rely on the tester’s knowledge of the software and the business domain."
+        }
+    },
+    {
+        question: "Question #20 (1 Point): You are testing a simplified apartment search form which has only two search criteria: floor (with three possible options: ground floor; first floor; second or higher floor) and garden type (with three possible options: no garden; small garden; large garden). Only one option can be selected in each criteria. Which of the following represents a complete pairwise test design?",
+        options: [
+            { text: "a) Ground floor, no garden; Ground floor, small garden; Ground floor, large garden; First floor, no garden; First floor, small garden; First floor, large garden; Second or higher floor, no garden; Second or higher floor, small garden; Second or higher floor, large garden", correct: true },
+            { text: "b) Ground floor, no garden; First floor, no garden; Second or higher floor, no garden", correct: false },
+            { text: "c) Ground floor, small garden; First floor, small garden; Second or higher floor, small garden", correct: false },
+            { text: "d) Ground floor, large garden; First floor, large garden; Second or higher floor, large garden", correct: false },
+        ],
+        explanation: {
+            correct: "Correct! This option covers all possible combinations of the two criteria.",
+            incorrect: "Incorrect. The correct answer is a) Ground floor, no garden; Ground floor, small garden; Ground floor, large garden; First floor, no garden; First floor, small garden; First floor, large garden; Second or higher floor, no garden; Second or higher floor, small garden; Second or higher floor, large garden."
+        }
+    }
+];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const question = questions[currentQuestionIndex];
+        document.getElementById('questionText').textContent = question.question;
+        const optionsContainer = document.getElementById('optionsContainer');
+        optionsContainer.innerHTML = '';
+
+        question.options.forEach((option, index) => {
+            const optionElement = document.createElement('div');
+            optionElement.innerHTML = `
+                <input type="radio" name="answer" value="${option.correct}">
+                ${option.text}
+            `;
+            optionsContainer.appendChild(optionElement);
+        });
+
+        document.getElementById('explanation').textContent = '';
+        document.getElementById('nextButton').style.display = 'none';
+        document.getElementById('submitButton').style.display = 'block';
+    }
+
+    function checkAnswer() {
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        if (!selectedOption) {
+            alert('Please select an answer before proceeding!');
+            return;
+        }
+
+        const isCorrect = selectedOption.value === "true";
+        if (isCorrect) {
+            score++;
+            document.getElementById('explanation').textContent = questions[currentQuestionIndex].explanation.correct;
+        } else {
+            document.getElementById('explanation').textContent = questions[currentQuestionIndex].explanation.incorrect;
+        }
+
+        document.getElementById('submitButton').style.display = 'none';
+        document.getElementById('nextButton').style.display = 'block';
+    }
+
+    document.getElementById('submitButton').onclick = checkAnswer;
+
+    document.getElementById('nextButton').onclick = function () {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion();
+        } else {
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('results').textContent = `Your score: ${score} out of ${questions.length}`;
+        }
+    };
+
+    loadQuestion(); // Load the first question on page load
+</script>
+
+</body>
+</html>
