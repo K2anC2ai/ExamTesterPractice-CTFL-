@@ -49,12 +49,19 @@
             font-style: italic;
             color: #555;
         }
+        .timer {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>ISTQB CTFL Sample Exam</h1>
+    <div class="timer" id="timer">Time Remaining: 75:00</div>
 
     <div id="questionContainer" class="question">
         <p id="questionText"></p>
@@ -334,6 +341,28 @@
 
     let currentQuestionIndex = 0;
     let score = 0;
+    let timer;
+    const totalTime = 75 * 60; // 75 minutes in seconds
+    let timeRemaining = totalTime;
+
+    function startTimer() {
+        timer = setInterval(() => {
+            timeRemaining--;
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer').textContent = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (timeRemaining <= 0) {
+                clearInterval(timer);
+                endExam();
+            }
+        }, 1000);
+    }
+
+    function endExam() {
+        document.getElementById('questionContainer').style.display = 'none';
+        document.getElementById('results').textContent = `Time's up! Your score: ${score} out of ${questions.length}`;
+    }
 
     function loadQuestion() {
         const question = questions[currentQuestionIndex];
@@ -381,13 +410,16 @@
         if (currentQuestionIndex < questions.length) {
             loadQuestion();
         } else {
+            clearInterval(timer);
             document.getElementById('questionContainer').style.display = 'none';
             document.getElementById('results').textContent = `Your score: ${score} out of ${questions.length}`;
         }
     };
 
     loadQuestion(); // Load the first question on page load
+    startTimer(); // Start the timer
 </script>
 
 </body>
 </html>
+    
