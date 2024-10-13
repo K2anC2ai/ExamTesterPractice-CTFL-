@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Analysis and Design</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #007acc;
+            border-radius: 10px;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #007acc;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 10px 0;
+            color: #333;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .keywords {
+            font-style: italic;
+            color: #777;
+            background-color: #e7f3fe;
+            padding: 10px;
+            border-left: 5px solid #007acc;
+            margin: 20px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Test Analysis and Design</h1>
+        <h2>Duration: 390 minutes</h2>
+    </header>
+
+    <p class="keywords">
+        Keywords: acceptance criteria, acceptance test-driven development, black-box test technique, boundary value analysis, branch coverage, checklist-based testing, collaboration-based test approach, coverage, coverage item, decision table testing, equivalence partitioning, error guessing, experience-based test technique, exploratory testing, state transition testing, statement coverage, test technique, white-box test technique
+    <div class="content">
+        <h3>Learning Objectives for Chapter 4:</h3>
+
+        <h4>Test Techniques Overview</h4>
+        <ul>
+            <li><strong>FL-4.1.1 (K2):</strong> Distinguish black-box, white-box and experience-based test techniques</li>
+        </ul>
+    
+        <h4>Black-box Test Techniques</h4>
+        <ul>
+            <li><strong>FL-4.2.1 (K3):</strong> Use equivalence partitioning to derive test cases</li>
+            <li><strong>FL-4.2.2 (K3):</strong> Use boundary value analysis to derive test cases</li>
+            <li><strong>FL-4.2.3 (K3):</strong> Use decision table testing to derive test cases</li>
+            <li><strong>FL-4.2.4 (K3):</strong> Use state transition testing to derive test cases</li>
+        </ul>
+    
+        <h4>White-box Test Techniques</h4>
+        <ul>
+            <li><strong>FL-4.3.1 (K2):</strong> Explain statement testing</li>
+            <li><strong>FL-4.3.2 (K2):</strong> Explain branch testing</li>
+            <li><strong>FL-4.3.3 (K2):</strong> Explain the value of white-box testing</li>
+        </ul>
+    
+        <h4>Experience-based Test Techniques</h4>
+        <ul>
+            <li><strong>FL-4.4.1 (K2):</strong> Explain error guessing</li>
+            <li><strong>FL-4.4.2 (K2):</strong> Explain exploratory testing</li>
+            <li><strong>FL-4.4.3 (K2):</strong> Explain checklist-based testing</li>
+        </ul>
+    
+        <h4>Collaboration-based Test Approaches</h4>
+        <ul>
+            <li><strong>FL-4.5.1 (K2):</strong> Explain how to write user stories in collaboration with developers and business representatives</li>
+            <li><strong>FL-4.5.2 (K2):</strong> Classify the different options for writing acceptance criteria</li>
+            <li><strong>FL-4.5.3 (K3):</strong> Use acceptance test-driven development (ATDD) to derive test cases</li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h3>4.1. Test Techniques Overview</h3>
+    
+        <p>Test techniques support the tester in <strong>test analysis</strong> (what to test) and in <strong>test design</strong> (how to test). They help to develop a relatively small, but sufficient, set of test cases in a systematic way. Test techniques also assist testers in defining test conditions, identifying coverage items, and selecting test data during the test analysis and design phase. For more details, see the <em>ISO/IEC/IEEE 29119-4 standard</em> and references such as:</p>
+    
+        <ul>
+            <li>Beizer (1990)</li>
+            <li>Craig (2002)</li>
+            <li>Copeland (2004)</li>
+            <li>Koomen (2006)</li>
+            <li>Jorgensen (2014)</li>
+            <li>Ammann (2016)</li>
+            <li>Forgács (2019)</li>
+        </ul>
+    
+        <p>In this syllabus, test techniques are classified into three categories:</p>
+    
+        <h4>1. Black-box Test Techniques</h4>
+        <p>(Also known as specification-based techniques)</p>
+        <p>These techniques are based on the analysis of the specified behavior of the test object without considering its internal structure. Therefore, the test cases are independent of how the software is implemented. Even if the implementation changes but the required behavior remains the same, the test cases will still be relevant.</p>
+    
+        <h4>2. White-box Test Techniques</h4>
+        <p>(Also known as structure-based techniques)</p>
+        <p>These techniques rely on analyzing the internal structure and processing of the test object. Since these test cases are dependent on how the software is designed, they can only be created after the design or implementation phase is complete.</p>
+    
+        <h4>3. Experience-based Test Techniques</h4>
+        <p>These techniques leverage the knowledge and experience of testers to design and implement test cases. Their effectiveness heavily depends on the tester’s skills. These techniques can detect defects that may be missed by black-box and white-box techniques, making them complementary to the other two methods.</p>
+    </div>
+    <div class="content">
+        <h3>4.2. Black-Box Test Techniques</h3>
+        <p>Commonly used black-box test techniques discussed in the following sections are:</p>
+        <ul>
+            <li>Equivalence Partitioning</li>
+            <li>Boundary Value Analysis</li>
+            <li>Decision Table Testing</li>
+            <li>State Transition Testing</li>
+        </ul>
+    
+        <h4>Equivalence Partitioning</h4>
+        <p>Equivalence Partitioning (EP) divides data into partitions (called equivalence partitions) where all elements within a partition are processed similarly by the test object. If a defect is detected in one value from a partition, it is assumed that other values in the same partition would yield the same defect.</p>
+    
+        <p>EP can be applied to inputs, outputs, configuration items, time-related values, or interface parameters. Partitions must be non-overlapping and non-empty. They can be valid (expected to be processed correctly) or invalid (expected to be ignored or rejected). To achieve 100% EP coverage, all partitions must be tested at least once.</p>
+    
+        <h4>Boundary Value Analysis</h4>
+        <p>Boundary Value Analysis (BVA) focuses on boundary values of partitions since defects often occur at boundaries. This syllabus covers two versions of BVA:</p>
+        <ul>
+            <li><strong>2-value BVA:</strong> Tests the boundary value and its closest neighbor.</li>
+            <li><strong>3-value BVA:</strong> Tests the boundary value and both its neighbors. This is more rigorous and can detect additional defects.</li>
+        </ul>
+        <p>Coverage is measured as the number of boundary values exercised divided by the total number of identified boundary values.</p>
+    
+        <h4>Decision Table Testing</h4>
+        <p>Decision tables represent complex logic (e.g., business rules) by mapping conditions and actions. Each column represents a unique combination of conditions and their corresponding actions. Coverage is measured by testing all feasible columns at least once.</p>
+    
+        <p>Notation used in decision tables:</p>
+        <ul>
+            <li><strong>T</strong>: True (condition is satisfied)</li>
+            <li><strong>F</strong>: False (condition is not satisfied)</li>
+            <li><strong>-</strong>: Irrelevant condition</li>
+            <li><strong>N/A</strong>: Infeasible condition</li>
+            <li><strong>X</strong>: Action should occur</li>
+        </ul>
+    
+        <p>While decision tables are effective for identifying gaps or contradictions, they can become large if there are many conditions. Minimization or a risk-based approach may be used to reduce the complexity.</p>
+    
+        <h4>State Transition Testing</h4>
+        <p>State transition diagrams model system behavior by showing states and valid transitions. A transition occurs in response to an event, which may trigger specific actions. State tables provide an equivalent model by listing states and events in rows and columns.</p>
+    
+        <p>Coverage criteria for state transition testing include:</p>
+        <ul>
+            <li><strong>All States Coverage:</strong> All states are visited.</li>
+            <li><strong>Valid Transitions Coverage:</strong> All valid transitions are exercised.</li>
+            <li><strong>All Transitions Coverage:</strong> Both valid and invalid transitions are tested to ensure no fault masking occurs.</li>
+        </ul>
+    
+        <p>Valid transitions coverage ensures all states are visited. All transitions coverage is the most rigorous and should be required for mission-critical software.</p>
+    </div>
+    <div class="content">
+        <h3>4.3. White-Box Test Techniques</h3>
+        <p>This section focuses on two common code-related white-box test techniques due to their popularity and simplicity:</p>
+        <ul>
+            <li>Statement Testing</li>
+            <li>Branch Testing</li>
+        </ul>
+        <p>More rigorous techniques exist for safety-critical, mission-critical, or high-integrity environments, but these are beyond the scope of this syllabus. Similarly, some white-box techniques used in higher test levels or for non-code-related coverage (e.g., neural network testing) are also not discussed here.</p>
+    
+        <h4>Statement Testing and Statement Coverage</h4>
+        <p>In statement testing, the goal is to design test cases that exercise executable statements in the code. Coverage is measured as the number of exercised statements divided by the total number of executable statements, expressed as a percentage.</p>
+        <p>100% statement coverage ensures that every executable statement has been tested at least once. However, it may not detect all defects, such as those dependent on specific data values or certain conditions (e.g., division by zero). Additionally, statement coverage does not guarantee that all decision logic (e.g., branches) has been exercised.</p>
+    
+        <h4>Branch Testing and Branch Coverage</h4>
+        <p>A branch represents a control transfer between two nodes in the control flow of a program. Branch testing aims to design test cases that exercise all branches, including both unconditional and conditional branches.</p>
+        <p>Coverage is measured as the number of branches exercised divided by the total number of branches, expressed as a percentage. Achieving 100% branch coverage ensures that all branches (e.g., true/false conditions in “if...then” statements) have been tested, but like statement testing, branch testing may not uncover all defects.</p>
+        <p>Branch coverage subsumes statement coverage, meaning that if 100% branch coverage is achieved, 100% statement coverage is also achieved (but not vice versa).</p>
+    
+        <h4>The Value of White-Box Testing</h4>
+        <p>White-box testing has the strength of examining the entire software implementation, allowing for defect detection even when specifications are incomplete or outdated. However, white-box testing may miss defects caused by requirements omissions, as it focuses on what has been implemented, not what should have been implemented.</p>
+        <p>White-box techniques are useful in static testing (e.g., reviewing non-executable code or pseudocode) and provide an objective measure of coverage. This allows for generating additional tests to increase coverage and confidence in the software.</p>
+    </div>
+    <div class="content">
+        <h3>4.4. Experience-based Test Techniques</h3>
+        <p>The commonly used experience-based test techniques discussed in the following sections are:</p>
+        <ul>
+            <li>Error Guessing</li>
+            <li>Exploratory Testing</li>
+            <li>Checklist-based Testing</li>
+        </ul>
+    
+        <h4>Error Guessing</h4>
+        <p>Error guessing is a technique used to anticipate errors, defects, and failures based on the tester’s knowledge, including:</p>
+        <ul>
+            <li>How the application has worked in the past</li>
+            <li>Common errors made by developers and the defects resulting from them</li>
+            <li>Failures observed in similar applications</li>
+        </ul>
+        <p>Errors, defects, and failures may involve:</p>
+        <ul>
+            <li><b>Input:</b> e.g., incorrect input not accepted, missing parameters</li>
+            <li><b>Output:</b> e.g., wrong format, incorrect results</li>
+            <li><b>Logic:</b> e.g., missing cases, incorrect operators</li>
+            <li><b>Computation:</b> e.g., incorrect operands, faulty calculations</li>
+            <li><b>Interfaces:</b> e.g., parameter mismatches, type incompatibilities</li>
+            <li><b>Data:</b> e.g., incorrect initialization, wrong data type</li>
+        </ul>
+        <p>Fault attacks are a systematic approach to error guessing. They involve creating or acquiring lists of possible errors, defects, and failures, and designing tests to expose them. These lists can be based on experience, historical defect data, or general knowledge about software failures.</p>
+        <p>See references such as Whittaker (2002, 2003) and Andrews (2006) for more details on error guessing and fault attacks.</p>
+    
+        <h4>Exploratory Testing</h4>
+        <p>In exploratory testing, tests are simultaneously designed, executed, and evaluated as the tester learns about the test object. It allows the tester to delve deeper into the application and identify untested areas.</p>
+        <p>Exploratory testing can be structured using <b>session-based testing</b>, which involves conducting the testing within a defined time-box. In this approach:</p>
+        <ul>
+            <li>A <b>test charter</b> with objectives guides the testing.</li>
+            <li>A <b>debriefing</b> session follows the test, involving a discussion between the tester and stakeholders.</li>
+            <li>Testers may use <b>session sheets</b> to document steps taken and discoveries made during the session.</li>
+        </ul>
+        <p>Exploratory testing is valuable when specifications are incomplete or time is limited. It complements formal testing techniques and benefits from experienced testers with analytical skills, curiosity, and creativity (see section 1.5.1).</p>
+        <p>Other testing techniques, such as equivalence partitioning, can also be incorporated into exploratory testing. For more details, refer to Kaner (1999), Whittaker (2009), and Hendrickson (2013).</p>
+    
+        <h4>Checklist-based Testing</h4>
+        <p>In checklist-based testing, the tester uses a checklist to guide the design, implementation, and execution of tests. Checklists can be developed from experience, user requirements, or insights into common software failures.</p>
+        <p>Checklist items should be specific, actionable, and phrased as questions. They may cover various aspects, including:</p>
+        <ul>
+            <li>Requirements</li>
+            <li>Graphical interface properties</li>
+            <li>Quality characteristics</li>
+            <li>Functional and non-functional testing needs (e.g., usability heuristics by Nielsen 1994)</li>
+        </ul>
+        <p>Checklists should evolve over time to reflect new defects and prevent developers from repeating the same mistakes. However, they should be kept concise to maintain their effectiveness (Gawande 2009).</p>
+        <p>In the absence of detailed test cases, checklist-based testing offers some consistency and flexibility. However, high-level checklists may result in greater coverage but reduced repeatability.</p>
+    </div>
+    <div class="content">
+        <h3>4.5. Collaboration-based Test Approaches</h3>
+        <p>Each of the above-mentioned techniques (see sections 4.2, 4.3, 4.4) has a particular objective with respect to defect detection. Collaboration-based approaches, however, focus on both defect detection and avoidance through collaboration and communication.</p>
+    
+        <h4>Collaborative User Story Writing</h4>
+        <p>A user story represents a feature valuable to either a user or purchaser. User stories consist of three critical aspects, known as the "3 C’s" (Jeffries 2000):</p>
+        <ul>
+            <li><b>Card:</b> Describes the user story (e.g., index card or entry in an electronic board).</li>
+            <li><b>Conversation:</b> Explains how the software will be used (either documented or verbal).</li>
+            <li><b>Confirmation:</b> Specifies the acceptance criteria (see section 4.5.2).</li>
+        </ul>
+        <p>The typical format for a user story is: 
+           <i>“As a [role], I want [goal to be accomplished], so that I can [resulting business value for the role].”</i> 
+           This is followed by the acceptance criteria.</p>
+        <p>Collaborative authorship of user stories involves techniques such as brainstorming and mind mapping. The goal is to align the team on a shared vision by considering perspectives from business, development, and testing.</p>
+        <p>A good user story follows the <b>INVEST</b> criteria: Independent, Negotiable, Valuable, Estimable, Small, and Testable. If stakeholders struggle to define tests for a story, it may indicate that the story lacks clarity, value, or that stakeholders need assistance with testing (Wake 2003).</p>
+    
+        <h4>Acceptance Criteria</h4>
+        <p>Acceptance criteria are the conditions that must be met for a user story to be accepted by stakeholders. They act as test conditions and are usually derived from the Conversation aspect of the story (see section 4.5.1).</p>
+        <p>Acceptance criteria are used to:</p>
+        <ul>
+            <li>Define the scope of the user story.</li>
+            <li>Establish consensus among stakeholders.</li>
+            <li>Describe positive and negative scenarios.</li>
+            <li>Form the basis for acceptance testing (see section 4.5.3).</li>
+            <li>Enable accurate planning and estimation.</li>
+        </ul>
+        <p>Two common formats for acceptance criteria include:</p>
+        <ul>
+            <li><b>Scenario-oriented:</b> e.g., Given/When/Then format used in BDD (see section 2.1.3).</li>
+            <li><b>Rule-oriented:</b> e.g., bullet-point list or input-output mapping table.</li>
+        </ul>
+        <p>Although most acceptance criteria fit one of these formats, teams may choose any custom format as long as the criteria are well-defined and unambiguous.</p>
+    
+        <h4>Acceptance Test-driven Development (ATDD)</h4>
+        <p>ATDD is a <b>test-first</b> approach (see section 2.1.3) where test cases are created before the implementation of a user story. These test cases are developed collaboratively by team members from different perspectives, such as customers, developers, and testers (Adzic 2009). The tests can be executed manually or automated.</p>
+        <p>The ATDD process begins with a specification workshop, where the team discusses and refines the user story and its acceptance criteria. This ensures clarity and resolves ambiguities or defects. Next, the team creates test cases based on the acceptance criteria. These test cases provide examples of expected behavior and help ensure correct implementation.</p>
+        <p>Test design may incorporate techniques from sections 4.2, 4.3, and 4.4. The process typically follows these steps:</p>
+        <ul>
+            <li>Design <b>positive test cases</b> to confirm correct behavior without exceptions.</li>
+            <li>Execute <b>negative testing</b> to handle unexpected or incorrect conditions.</li>
+            <li>Address <b>non-functional qualities</b> such as performance and usability.</li>
+        </ul>
+        <p>Test cases must align with the user story’s scope and not exceed it. Each test case should focus on a distinct characteristic to avoid redundancy. Test cases are often expressed in natural language, containing:</p>
+        <ul>
+            <li>Preconditions (if any)</li>
+            <li>Inputs</li>
+            <li>Expected outcomes</li>
+        </ul>
+        <p>When test cases are documented in a format supported by a test automation framework, developers can automate the tests alongside feature development. This way, acceptance tests act as executable requirements, ensuring that features meet stakeholder expectations.</p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>

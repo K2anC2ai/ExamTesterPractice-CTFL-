@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Analysis and Design</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #007acc;
+            border-radius: 10px;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #007acc;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 10px 0;
+            color: #333;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .keywords {
+            font-style: italic;
+            color: #777;
+            background-color: #e7f3fe;
+            padding: 10px;
+            border-left: 5px solid #007acc;
+            margin: 20px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Managing the Test Activities</h1>
+        <h2>Duration: 335 minutes</h2>
+    </header>
+
+    <p class="keywords">
+        Keywords: defect management, defect report, entry criteria, exit criteria, product risk, project risk, risk, risk analysis, risk assessment, risk control, risk identification, risk level, risk management, risk mitigation, risk monitoring, risk-based testing, test approach, test completion report, test control, test monitoring, test plan, test planning, test progress report, test pyramid, testing quadrants
+    <div class="content">
+        <h3>Learning Objectives for Chapter 5</h3>
+
+    <h4>Test Planning</h4>
+    <ul>
+        <li><b>FL-5.1.1 (K2):</b> Exemplify the purpose and content of a test plan.</li>
+        <li><b>FL-5.1.2 (K1):</b> Recognize how a tester adds value to iteration and release planning.</li>
+        <li><b>FL-5.1.3 (K2):</b> Compare and contrast entry criteria and exit criteria.</li>
+        <li><b>FL-5.1.4 (K3):</b> Use estimation techniques to calculate the required test effort.</li>
+        <li><b>FL-5.1.5 (K3):</b> Apply test case prioritization.</li>
+        <li><b>FL-5.1.6 (K1):</b> Recall the concepts of the test pyramid.</li>
+        <li><b>FL-5.1.7 (K2):</b> Summarize the testing quadrants and their relationships with test levels and test types.</li>
+    </ul>
+
+    <h4>Risk Management</h4>
+    <ul>
+        <li><b>FL-5.2.1 (K1):</b> Identify risk level by using risk likelihood and risk impact.</li>
+        <li><b>FL-5.2.2 (K2):</b> Distinguish between project risks and product risks.</li>
+        <li><b>FL-5.2.3 (K2):</b> Explain how product risk analysis may influence thoroughness and scope of testing.</li>
+        <li><b>FL-5.2.4 (K2):</b> Explain what measures can be taken in response to analyzed product risks.</li>
+    </ul>
+
+    <h4>Test Monitoring, Test Control and Test Completion</h4>
+    <ul>
+        <li><b>FL-5.3.1 (K1):</b> Recall metrics used for testing.</li>
+        <li><b>FL-5.3.2 (K2):</b> Summarize the purposes, content, and audiences for test reports.</li>
+        <li><b>FL-5.3.3 (K2):</b> Exemplify how to communicate the status of testing.</li>
+    </ul>
+
+    <h4>Configuration Management</h4>
+    <ul>
+        <li><b>FL-5.4.1 (K2):</b> Summarize how configuration management supports testing.</li>
+    </ul>
+
+    <h4>Defect Management</h4>
+    <ul>
+        <li><b>FL-5.5.1 (K3):</b> Prepare a defect report.</li>
+    </ul>
+</div>
+<div class="content">
+    <h3>5.1. Test Planning</h3>
+
+    <h4>Purpose and Content of a Test Plan</h4>
+    <p>A test plan describes the objectives, resources, and processes for a test project. A test plan:</p>
+    <ul>
+        <li>Documents the means and schedule for achieving test objectives.</li>
+        <li>Helps ensure that the performed test activities will meet the established criteria.</li>
+        <li>Serves as a means of communication with team members and other stakeholders.</li>
+        <li>Demonstrates that testing will adhere to the existing test policy and test strategy (or explains why the testing will deviate from them).</li>
+    </ul>
+    <p>Test planning guides the testers’ thinking and forces them to confront future challenges related to risks, schedules, people, tools, costs, and effort. The process of preparing a test plan is a useful way to think through the efforts needed to achieve the test project objectives.</p>
+
+    <p>The typical content of a test plan includes:</p>
+    <ul>
+        <li>Context of testing (e.g., scope, test objectives, constraints, test basis)</li>
+        <li>Assumptions and constraints of the test project</li>
+        <li>Stakeholders (e.g., roles, responsibilities, relevance to testing, hiring and training needs)</li>
+        <li>Communication (e.g., forms and frequency of communication, documentation templates)</li>
+        <li>Risk register (e.g., product risks, project risks)</li>
+        <li>Test approach (e.g., test levels, test types, test techniques, test deliverables, entry criteria and exit criteria, independence of testing, metrics to be collected, test data requirements, test environment requirements, deviations from the organizational test policy and test strategy)</li>
+        <li>Budget and schedule</li>
+    </ul>
+    <p>More details about the test plan and its content can be found in the <a href="https://www.iso.org/standard/66066.html" target="_blank">ISO/IEC/IEEE 29119-3 standard</a>.</p>
+
+    <h4>Tester's Contribution to Iteration and Release Planning</h4>
+    <p>In iterative SDLCs, two kinds of planning typically occur: release planning and iteration planning.</p>
+    
+    <h5>Release Planning</h5>
+    <p>Release planning looks ahead to the product release, defines and redefines the product backlog, and may involve refining larger user stories into smaller user stories. It serves as the basis for the test approach and test plan across all iterations. Testers involved in release planning participate in:</p>
+    <ul>
+        <li>Writing testable user stories and acceptance criteria (see section 4.5).</li>
+        <li>Project and quality risk analyses (see section 5.2).</li>
+        <li>Estimating test effort associated with user stories (see section 5.1.4).</li>
+        <li>Determining the test approach.</li>
+        <li>Planning the testing for the release.</li>
+    </ul>
+
+    <h5>Iteration Planning</h5>
+    <p>Iteration planning looks ahead to the end of a single iteration and is concerned with the iteration backlog. Testers involved in iteration planning participate in:</p>
+    <ul>
+        <li>Detailed risk analysis of user stories.</li>
+        <li>Determining the testability of user stories.</li>
+        <li>Breaking down user stories into tasks (particularly testing tasks).</li>
+        <li>Estimating test effort for all testing tasks.</li>
+        <li>Identifying and refining functional and non-functional aspects of the test object.</li>
+    </ul>
+
+    <h4>Entry Criteria and Exit Criteria</h4>
+    <p>Entry criteria define the preconditions for undertaking a given activity. If entry criteria are not met, the activity may be more difficult, time-consuming, costly, and risky. Exit criteria define what must be achieved to declare an activity completed. Entry and exit criteria should be defined for each test level and will differ based on the test objectives.</p>
+
+    <p>Typical entry criteria include:</p>
+    <ul>
+        <li>Availability of resources (e.g., people, tools, environments, test data, budget, time).</li>
+        <li>Availability of testware (e.g., test basis, testable requirements, user stories, test cases).</li>
+        <li>Initial quality level of a test object (e.g., all smoke tests have passed).</li>
+    </ul>
+
+    <p>Typical exit criteria include:</p>
+    <ul>
+        <li>Measures of thoroughness (e.g., achieved level of coverage, number of unresolved defects, defect density, number of failed test cases).</li>
+        <li>Completion criteria (e.g., planned tests have been executed, static testing has been performed, all defects found are reported, all regression tests are automated).</li>
+    </ul>
+
+    <p>Running out of time or budget can also be considered valid exit criteria. Even if other exit criteria are not satisfied, it may be acceptable to end testing under such circumstances, provided stakeholders have reviewed and accepted the risk to go live without further testing.</p>
+
+    <p>In Agile software development, exit criteria are often referred to as <b>Definition of Done</b>, which defines the team’s objective metrics for a releasable item. Entry criteria that a user story must fulfill to start development and/or testing activities are called <b>Definition of Ready</b>.</p>
+    <h3>Estimation Techniques</h3>
+    <p>Test effort estimation involves predicting the amount of test-related work needed to meet the objectives of a test project. It is important to make it clear to the stakeholders that the estimate is based on a number of assumptions and is always subject to estimation error. Estimation for small tasks is usually more accurate than for large ones. Therefore, when estimating a large task, it can be decomposed into a set of smaller tasks which then can be estimated.</p>
+    
+    <p>In this syllabus, the following four estimation techniques are described:</p>
+    
+    <h4>1. Estimation Based on Ratios</h4>
+    <p>In this metrics-based technique, figures are collected from previous projects within the organization, which makes it possible to derive “standard” ratios for similar projects. The ratios of an organization’s own projects (e.g., taken from historical data) are generally the best source to use in the estimation process. These standard ratios can then be used to estimate the test effort for the new project. For example, if in the previous project the development-to-test effort ratio was 3:2, and in the current project the development effort is expected to be 600 person-days, the test effort can be estimated to be 400 person-days.</p>
+    
+    <h4>2. Extrapolation</h4>
+    <p>In this metrics-based technique, measurements are made as early as possible in the current project to gather the data. Having enough observations, the effort required for the remaining work can be approximated by extrapolating this data (usually by applying a mathematical model). This method is very suitable in iterative SDLCs. For example, the team may extrapolate the test effort in the forthcoming iteration as the averaged effort from the last three iterations.</p>
+    
+    <h4>3. Wideband Delphi</h4>
+    <p>In this iterative, expert-based technique, experts make experience-based estimations. Each expert, in isolation, estimates the effort. The results are collected and if there are deviations that are out of range of the agreed upon boundaries, the experts discuss their current estimates. Each expert is then asked to make a new estimation based on that feedback, again in isolation. This process is repeated until a consensus is reached. Planning Poker is a variant of Wideband Delphi, commonly used in Agile software development. In Planning Poker, estimates are usually made using cards with numbers that represent the effort size.</p>
+    
+    <h4>4. Three-point Estimation</h4>
+    <p>In this expert-based technique, three estimations are made by the experts: the most optimistic estimation (a), the most likely estimation (m), and the most pessimistic estimation (b). The final estimate (E) is their weighted arithmetic mean. In the most popular version of this technique, the estimate is calculated as <b>E = (a + 4*m + b) / 6</b>. The advantage of this technique is that it allows the experts to calculate the measurement error: <b>SD = (b – a) / 6</b>. For example, if the estimates (in person-hours) are: a=6, m=9, and b=18, then the final estimation is <b>10±2 person-hours</b> (i.e., between 8 and 12 person-hours), because <b>E = (6 + 4*9 + 18) / 6 = 10</b> and <b>SD = (18 – 6) / 6 = 2</b>.</p>
+
+    <h4>References</h4>
+    <p>See (Kan 2003, Koomen 2006, Westfall 2009) for these and many other test estimation techniques.</p>
+
+    <h3>Test Case Prioritization</h3>
+    <p>Once the test cases and test procedures are specified and assembled into test suites, these test suites can be arranged in a test execution schedule that defines the order in which they are to be run. When prioritizing test cases, different factors can be taken into account. The most commonly used test case prioritization strategies are as follows:</p>
+    
+    <h4>1. Risk-Based Prioritization</h4>
+    <p>In this strategy, the order of test execution is based on the results of risk analysis (see section 5.2.3). Test cases covering the most important risks are executed first.</p>
+    
+    <h4>2. Coverage-Based Prioritization</h4>
+    <p>This strategy orders the test execution based on coverage (e.g., statement coverage). Test cases achieving the highest coverage are executed first. In another variant, called additional coverage prioritization, the test case achieving the highest coverage is executed first; each subsequent test case is the one that achieves the highest additional coverage.</p>
+    
+    <h4>3. Requirements-Based Prioritization</h4>
+    <p>In this strategy, the order of test execution is based on the priorities of the requirements traced back to the corresponding test cases. Requirement priorities are defined by stakeholders. Test cases related to the most important requirements are executed first.</p>
+    
+    <p>Ideally, test cases would be ordered to run based on their priority levels, using, for example, one of the above-mentioned prioritization strategies. However, this practice may not work if the test cases or the features being tested have dependencies. If a test case with a higher priority is dependent on a test case with a lower priority, the lower priority test case must be executed first.</p>
+    
+    <p>The order of test execution must also take into account the availability of resources. For example, the required test tools, test environments, or people may only be available for a specific time window.</p>
+</div>
+<div class="content">
+    <h3>5.2. Risk Management</h3>
+    <p>Organizations face many internal and external factors that make it uncertain whether and when they will achieve their objectives (ISO 31000). Risk management allows organizations to increase the likelihood of achieving objectives, improve the quality of their products, and increase stakeholders’ confidence and trust.</p>
+
+    <p>The main risk management activities are:</p>
+    <ul>
+        <li><b>Risk analysis</b> (consisting of risk identification and risk assessment; see section 5.2.3)</li>
+        <li><b>Risk control</b> (consisting of risk mitigation and risk monitoring; see section 5.2.4)</li>
+    </ul>
+    
+    <p>The test approach, in which test activities are selected, prioritized, and managed based on risk analysis and risk control, is called <b>risk-based testing</b>.</p>
+
+    <h3>Risk Definition and Risk Attributes</h3>
+    <p>Risk is a potential event, hazard, threat, or situation whose occurrence causes an adverse effect. A risk can be characterized by two factors:</p>
+    <ul>
+        <li><b>Risk likelihood</b> – the probability of the risk occurrence (greater than zero and less than one)</li>
+        <li><b>Risk impact (harm)</b> – the consequences of this occurrence</li>
+    </ul>
+
+    <p>These two factors express the risk level, which is a measure for the risk. The higher the risk level, the more important is its treatment.</p>
+
+    <h3>Project Risks and Product Risks</h3>
+    <p>In software testing, one is generally concerned with two types of risks: <b>project risks</b> and <b>product risks</b>.</p>
+
+    <h4>Project Risks</h4>
+    <p>Project risks are related to the management and control of the project. Project risks include:</p>
+    <ul>
+        <li><b>Organizational issues</b> (e.g., delays in work products deliveries, inaccurate estimates, cost-cutting)</li>
+        <li><b>People issues</b> (e.g., insufficient skills, conflicts, communication problems, shortage of staff)</li>
+        <li><b>Technical issues</b> (e.g., scope creep, poor tool support)</li>
+        <li><b>Supplier issues</b> (e.g., third-party delivery failure, bankruptcy of the supporting company)</li>
+    </ul>
+    <p>Project risks, when they occur, may have an impact on the project schedule, budget, or scope, which affects the project's ability to achieve its objectives.</p>
+
+    <h4>Product Risks</h4>
+    <p>Product risks are related to the product quality characteristics (e.g., described in the ISO 25010 quality model). Examples of product risks include:</p>
+    <ul>
+        <li>Missing or wrong functionality</li>
+        <li>Incorrect calculations</li>
+        <li>Runtime errors</li>
+        <li>Poor architecture</li>
+        <li>Inefficient algorithms</li>
+        <li>Inadequate response time</li>
+        <li>Poor user experience</li>
+        <li>Security vulnerabilities</li>
+    </ul>
+    <p>Product risks, when they occur, may result in various negative consequences, including:</p>
+    <ul>
+        <li>User dissatisfaction</li>
+        <li>Loss of revenue, trust, reputation</li>
+        <li>Damage to third parties</li>
+        <li>High maintenance costs, overload of the helpdesk</li>
+        <li>Criminal penalties</li>
+        <li>In extreme cases, physical damage, injuries, or even death</li>
+    </ul>
+
+    <h3>Product Risk Analysis</h3>
+    <p>From a testing perspective, the goal of product risk analysis is to provide an awareness of product risk in order to focus the testing effort in a way that minimizes the residual level of product risk. Ideally, product risk analysis begins early in the SDLC.</p>
+
+    <p>Product risk analysis consists of risk identification and risk assessment. Risk identification is about generating a comprehensive list of risks. Stakeholders can identify risks by using various techniques and tools, e.g., brainstorming, workshops, interviews, or cause-effect diagrams. Risk assessment involves categorization of identified risks, determining their risk likelihood, risk impact and level, prioritizing, and proposing ways to handle them. Categorization helps in assigning mitigation actions, because usually risks falling into the same category can be mitigated using a similar approach.</p>
+
+    <p>Risk assessment can use a quantitative or qualitative approach, or a mix of them. In the quantitative approach, the risk level is calculated as the multiplication of risk likelihood and risk impact. In the qualitative approach, the risk level can be determined using a risk matrix.</p>
+
+    <p>Product risk analysis may influence the thoroughness and scope of testing. Its results are used to:</p>
+    <ul>
+        <li>Determine the scope of testing to be carried out</li>
+        <li>Determine the particular test levels and propose test types to be performed</li>
+        <li>Determine the test techniques to be employed and the coverage to be achieved</li>
+        <li>Estimate the test effort required for each task</li>
+        <li>Prioritize testing in an attempt to find the critical defects as early as possible</li>
+        <li>Determine whether any activities in addition to testing could be employed to reduce risk</li>
+    </ul>
+
+    <h3>Product Risk Control</h3>
+    <p>Product risk control comprises all measures that are taken in response to identified and assessed product risks. Product risk control consists of risk mitigation and risk monitoring. Risk mitigation involves implementing the actions proposed in risk assessment to reduce the risk level. The aim of risk monitoring is to ensure that the mitigation actions are effective, to obtain further information to improve risk assessment, and to identify emerging risks.</p>
+
+    <p>With respect to product risk control, once a risk has been analyzed, several response options to risk are possible, e.g., risk mitigation by testing, risk acceptance, risk transfer, or contingency plan (Veenendaal 2012). Actions that can be taken to mitigate the product risks by testing are as follows:</p>
+    <ul>
+        <li>Select the testers with the right level of experience and skills, suitable for a given risk type</li>
+        <li>Apply an appropriate level of independence of testing</li>
+        <li>Conduct reviews and perform static analysis</li>
+        <li>Apply the appropriate test techniques and coverage levels</li>
+        <li>Apply the appropriate test types addressing the affected quality characteristics</li>
+        <li>Perform dynamic testing, including regression testing</li>
+    </ul>
+</div>
+<div class="content">
+    <h3>5.3. Test Monitoring, Test Control and Test Completion</h3>
+    
+    <p>Test monitoring is concerned with gathering information about testing. This information is used to assess test progress and to measure whether the test exit criteria or the test tasks associated with the exit criteria are satisfied, such as meeting the targets for coverage of product risks, requirements, or acceptance criteria.</p>
+
+    <p>Test control uses the information from test monitoring to provide, in a form of the control directives, guidance and the necessary corrective actions to achieve the most effective and efficient testing. Examples of control directives include:</p>
+    <ul>
+        <li>Reprioritizing tests when an identified risk becomes an issue</li>
+        <li>Re-evaluating whether a test item meets entry criteria or exit criteria due to rework</li>
+        <li>Adjusting the test schedule to address a delay in the delivery of the test environment</li>
+        <li>Adding new resources when and where needed</li>
+    </ul>
+
+    <p>Test completion collects data from completed test activities to consolidate experience, testware, and any other relevant information. Test completion activities occur at project milestones such as when a test level is completed, an agile iteration is finished, a test project is completed (or cancelled), a software system is released, or a maintenance release is completed.</p>
+
+    <h3>Metrics used in Testing</h3>
+    <p>Test metrics are gathered to show progress against the planned schedule and budget, the current quality of the test object, and the effectiveness of the test activities with respect to the objectives or an iteration goal. Test monitoring gathers a variety of metrics to support the test control and test completion.</p>
+
+    <p>Common test metrics include:</p>
+    <ul>
+        <li><b>Project progress metrics</b> (e.g., task completion, resource usage, test effort)</li>
+        <li><b>Test progress metrics</b> (e.g., test case implementation progress, test environment preparation progress, number of test cases run/not run, passed/failed, test execution time)</li>
+        <li><b>Product quality metrics</b> (e.g., availability, response time, mean time to failure)</li>
+        <li><b>Defect metrics</b> (e.g., number and priorities of defects found/fixed, defect density, defect detection percentage)</li>
+        <li><b>Risk metrics</b> (e.g., residual risk level)</li>
+        <li><b>Coverage metrics</b> (e.g., requirements coverage, code coverage)</li>
+        <li><b>Cost metrics</b> (e.g., cost of testing, organizational cost of quality)</li>
+    </ul>
+
+    <h3>Purpose, Content and Audience for Test Reports</h3>
+    <p>Test reporting summarizes and communicates test information during and after testing. Test progress reports support the ongoing control of the testing and must provide enough information to make modifications to the test schedule, resources, or test plan when such changes are needed due to deviation from the plan or changed circumstances. Test completion reports summarize a specific stage of testing (e.g., test level, test cycle, iteration) and can give information for subsequent testing.</p>
+
+    <p>During test monitoring and control, the test team generates test progress reports for stakeholders to keep them informed. Test progress reports are usually generated on a regular basis (e.g., daily, weekly, etc.) and include:</p>
+    <ul>
+        <li>Test period</li>
+        <li>Test progress (e.g., ahead or behind schedule), including any notable deviations</li>
+        <li>Impediments for testing, and their workarounds</li>
+        <li>Test metrics (see section 5.3.1 for examples)</li>
+        <li>New and changed risks within the testing period</li>
+        <li>Testing planned for the next period</li>
+    </ul>
+
+    <p>A test completion report is prepared during test completion, when a project, test level, or test type is complete and when, ideally, its exit criteria have been met. This report uses test progress reports and other data. Typical test completion reports include:</p>
+    <ul>
+        <li>Test summary</li>
+        <li>Testing and product quality evaluation based on the original test plan (i.e., test objectives and exit criteria)</li>
+        <li>Deviations from the test plan (e.g., differences from the planned schedule, duration, and effort).</li>
+        <li>Testing impediments and workarounds</li>
+        <li>Test metrics based on test progress reports</li>
+        <li>Unmitigated risks, defects not fixed</li>
+        <li>Lessons learned that are relevant to the testing</li>
+    </ul>
+
+    <p>Different audiences require different information in the reports and influence the degree of formality and the frequency of reporting. Reporting on test progress to others in the same team is often frequent and informal, while reporting on testing for a completed project follows a set template and occurs only once.</p>
+
+    <p>The ISO/IEC/IEEE 29119-3 standard includes templates and examples for test progress reports (called test status reports) and test completion reports.</p>
+
+    <h3>Communicating the Status of Testing</h3>
+    <p>The best means of communicating test status varies, depending on test management concerns, organizational test strategies, regulatory standards, or, in the case of self-organizing teams (see section 1.5.2), on the team itself. The options include:</p>
+    <ul>
+        <li>Verbal communication with team members and other stakeholders</li>
+        <li>Dashboards (e.g., CI/CD dashboards, task boards, and burn-down charts)</li>
+        <li>Electronic communication channels (e.g., email, chat)</li>
+        <li>Online documentation</li>
+        <li>Formal test reports (see section 5.3.2)</li>
+    </ul>
+
+    <p>One or more of these options can be used. More formal communication may be more appropriate for distributed teams where direct face-to-face communication is not always possible due to geographical distance or time differences. Typically, different stakeholders are interested in different types of information, so communication should be tailored accordingly.</p>
+</div>
+<div class="content">
+    <h3>5.4. Configuration Management</h3>
+
+    <p>In testing, configuration management (CM) provides a discipline for identifying, controlling, and tracking work products such as test plans, test strategies, test conditions, test cases, test scripts, test results, test logs, and test reports as configuration items.</p>
+
+    <p>For a complex configuration item (e.g., a test environment), CM records the items it consists of, their relationships, and versions. If the configuration item is approved for testing, it becomes a baseline and can only be changed through a formal change control process.</p>
+
+    <p>Configuration management keeps a record of changed configuration items when a new baseline is created. It is possible to revert to a previous baseline to reproduce previous test results.</p>
+
+    <p>To properly support testing, CM ensures the following:</p>
+    <ul>
+        <li>All configuration items, including test items (individual parts of the test object), are uniquely identified, version controlled, tracked for changes, and related to other configuration items so that traceability can be maintained throughout the test process.</li>
+        <li>All identified documentation and software items are referenced unambiguously in test documentation.</li>
+        <li>Continuous integration, continuous delivery, continuous deployment, and the associated testing are typically implemented as part of an automated DevOps pipeline (see section 2.1.4), in which automated CM is normally included.</li>
+    </ul>
+</div>
+<div class="content">
+    <h3>5.5. Defect Management</h3>
+
+    <p>Since one of the major test objectives is to find defects, an established defect management process is essential. Although we refer to "defects" here, the reported anomalies may turn out to be real defects or something else (e.g., false positive, change request) - this is resolved during the process of dealing with the defect reports. Anomalies may be reported during any phase of the SDLC and the form depends on the SDLC. At a minimum, the defect management process includes a workflow for handling individual anomalies from their discovery to their closure and rules for their classification.</p>
+
+    <p>The workflow typically comprises activities to log the reported anomalies, analyze and classify them, decide on a suitable response such as to fix or keep it as it is, and finally to close the defect report. The process must be followed by all involved stakeholders. It is advisable to handle defects from static testing (especially static analysis) in a similar way.</p>
+
+    <h4>Typical defect reports have the following objectives:</h4>
+    <ul>
+        <li>Provide those responsible for handling and resolving reported defects with sufficient information to resolve the issue.</li>
+        <li>Provide a means of tracking the quality of the work product.</li>
+        <li>Provide ideas for improvement of the development and test process.</li>
+    </ul>
+
+    <p>A defect report logged during dynamic testing typically includes:</p>
+    <ul>
+        <li>Unique identifier</li>
+        <li>Title with a short summary of the anomaly being reported</li>
+        <li>Date when the anomaly was observed, issuing organization, and author, including their role</li>
+        <li>Identification of the test object and test environment</li>
+        <li>Context of the defect (e.g., test case being run, test activity being performed, SDLC phase, and other relevant information such as the test technique, checklist or test data being used)</li>
+        <li>Description of the failure to enable reproduction and resolution including the steps that detected the anomaly, and any relevant test logs, database dumps, screenshots, or recordings</li>
+        <li>Expected results and actual results</li>
+        <li>Severity of the defect (degree of impact) on the interests of stakeholders or requirements</li>
+        <li>Priority to fix</li>
+        <li>Status of the defect (e.g., open, deferred, duplicate, waiting to be fixed, awaiting confirmation testing, re-opened, closed, rejected)</li>
+        <li>References (e.g., to the test case)</li>
+    </ul>
+
+    <p>Some of this data may be automatically included when using defect management tools (e.g., identifier, date, author and initial status). Document templates for a defect report and example defect reports can be found in the ISO/IEC/IEEE 29119-3 standard, which refers to defect reports as incident reports.</p>
+</div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
