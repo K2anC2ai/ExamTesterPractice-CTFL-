@@ -41,11 +41,16 @@ My goal is to become a **QA Specialist** who ensures flawless and reliable softw
 ---
 
 ## 📜 Copyright Notice
-This website and its contents are for **educational purposes only**.  
-All materials and questions are based on publicly available information related to ISTQB CTFL certification.  
+Copyright Notice © International Software Testing Qualifications Board (hereinafter called ISTQB®).  
+ISTQB® is a registered trademark of the International Software Testing Qualifications Board.  
 
-“Testing leads to failure, and failure leads to understanding.” — *Burt Rutan*  
+Copyright © 2024 the authors of the Foundation Level v4.0.1 syllabus: Renzo Cerquozzi, Wim Decoutere, Jean-François Riverin, Arnika Hryszko, Martin Klonk, Meile Posthuma, Eric Riou du Cosquer (chair), Adam Roman, Lucjan Stapp, Stephanie Ulrich (vice chair), Eshraka Zakaria.  
+(Include full list of copyright dates and authors as mentioned in your provided text.)
 
----
+All rights reserved. The authors hereby transfer the copyright to the ISTQB®. The authors (as current copyright holders) and ISTQB® (as the future copyright holder) have agreed to the following conditions of use:
 
-Thank you for visiting! Feel free to explore and contribute to this project.
+- Extracts, for non-commercial use, from this document may be copied if the source is acknowledged.
+- Any Accredited Training Provider may use this syllabus as the basis for a training course if the authors and the ISTQB® are acknowledged as the source and copyright owners of the syllabus.
+- Any individual or group of individuals may use this syllabus as the basis for articles and books, if the authors and the ISTQB® are acknowledged as the source and copyright owners of the syllabus.
+- Any other use of this syllabus is prohibited without first obtaining the approval in writing of the ISTQB®.
+- Any ISTQB®-recognized Member Board may translate this syllabus provided they reproduce the abovementioned Copyright Notice in the translated version of the syllabus.
